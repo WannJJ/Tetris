@@ -50,6 +50,7 @@
               }
             } else {
               this.ctx.fillStyle = "rgb(240, 240, 240)";
+
             }
             this.ctx.fillRect(padding * 2 + j * (blockSize + padding), padding * 2 + (i - 3) * (blockSize + padding), blockSize, blockSize);
           }
@@ -457,6 +458,11 @@
 
     });
     window.addEventListener('keydown', (e) => {
+      //Disable arrow keys scrolling in browser
+      if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+      }
+
       switch (e.keyCode) {
         case 37:
           game.moveLeft();
